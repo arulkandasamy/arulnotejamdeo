@@ -1,0 +1,42 @@
+project_name: silken-network-252121
+namespace: notejam
+psp:
+  cluster_role: notejam-psp-cluster-role
+  cluster_role_binding: notejam-psp-cluster-role-binding
+  enabled: true
+
+nginx:
+  image: repository:docker pull gcr.io/silken-network-252121/notejam
+    tag: 0.1
+    pullPolicy: IfNotPresent
+
+  tls_secret_name: "notejam-nginx-tls-secret"
+
+  app: "notejam-nginx-app"
+  service_name: "notejam-nginx-service"
+  port: 8080
+  backend_config_name: "notejam-nginx-backend-config"
+  nginx_config_map: "notejam-nginx-config-map"
+  nginx_config_map_volume: "notejam-ngin-config-map-volume"
+  deployment_name: "notejam-nginx-deployment"
+
+iam:
+  google_service_account_name: "notejam-sa@silken-network-252121.iam.gserviceaccount.com"
+  k8s_service_account_name: "notejam-sa"
+
+notejam:
+  enabled: true
+  deployment_name : "notejam-deployment"
+  app: "notejam-app"
+  service_name: "notejam-service"
+  image:
+    repository: gcr.io/silken-network-252121/notejam
+    tag: 0.1
+    pullPolicy: IfNotPresent
+  port: 5000
+  replicas: 1
+
+secrets:
+  secret_name: secrets-notejam
+  db_host_port: "3306"
+

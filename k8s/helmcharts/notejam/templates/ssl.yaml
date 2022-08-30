@@ -1,0 +1,9 @@
+# managed ssl gcp
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  namespace: {{ .Values.namespace }}
+  name: {{ .Values.nginx.cert_name }}
+spec:
+  domains:
+    - wwwarulnotejamdemo.godaddysites.com
