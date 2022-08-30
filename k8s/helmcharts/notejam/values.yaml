@@ -7,8 +7,8 @@ psp:
 
 nginx:
   image: repository:docker pull gcr.io/silken-network-252121/notejam
-    tag: 0.1
-    pullPolicy: IfNotPresent
+  tag: 0.1
+  pullPolicy: IfNotPresent
 
   tls_secret_name: "notejam-nginx-tls-secret"
 
