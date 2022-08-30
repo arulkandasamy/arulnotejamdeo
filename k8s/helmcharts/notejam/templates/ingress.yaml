@@ -6,7 +6,6 @@ metadata:
   name: {{ .Values.ingress.name }}
   annotations:
     kubernetes.io/ingress.class: "gce"
-    kubernetes.io/ingress.global-static-ip-name: {{ .Values.ingress.static_ip_name }} # config for global static IP public
     networking.gke.io/managed-certificates: "production-managed-cert"
     networking.gke.io/v1beta1.FrontendConfig: "{{ .Values.nginx.service_name }}"
 spec:
