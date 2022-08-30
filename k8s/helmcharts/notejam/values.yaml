@@ -19,6 +19,9 @@ nginx:
   nginx_config_map: "notejam-nginx-config-map"
   nginx_config_map_volume: "notejam-ngin-config-map-volume"
   deployment_name: "notejam-nginx-deployment"
+  
+ingress:
+  name: nginx-ingress-ui
 
 iam:
   google_service_account_name: "notejam-sa@silken-network-252121.iam.gserviceaccount.com"
