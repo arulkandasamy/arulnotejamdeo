@@ -40,3 +40,5 @@ secrets:
   secret_name: secrets-notejam
   db_host_port: "3306"
 
+networkPolicy:
+  enabled: true
