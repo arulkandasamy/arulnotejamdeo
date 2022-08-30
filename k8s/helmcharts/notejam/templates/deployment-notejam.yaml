@@ -19,16 +19,7 @@ spec:
          fsGroup: 9999    
       containers:
       - name: {{ .Values.notejam.app }}
-        image: "{{ .Values.notejam.image.repository }}:{{ .Values.notejam.image.tag | default "latest" }}"
-        {{ if .Values.notejam.resources.enable }}
-        resources:
-          requests:
-            memory: {{ .Values.notejam.resources.requests.memory }}
-            cpu: {{ .Values.notejam.resources.requests.cpu }}
-          limits:
-            memory: {{ .Values.notejam.resources.limits.memory }}
-            cpu: {{ .Values.notejam.resources.limits.cpu }}
-        {{ end }}
+        image: "{{ .Values.notejam.image.repository }}:{{ .Values.notejam.image.tag | default "latest" }}"        
         imagePullPolicy: "{{ .Values.notejam.image.pullPolicy }}"
         securityContext:
           runAsUser : 1000
